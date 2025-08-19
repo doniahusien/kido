@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ProductCard from '@/components/product/ProductCard';
-
 export default function CategoriesPage() {
     const dispatch = useDispatch();
     const [categories, setCategories] = useState([]);

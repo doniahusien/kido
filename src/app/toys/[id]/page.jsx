@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Image from "next/image";
 import { selectToys } from "@/redux/selectors/productSelector";
 import AddToCartButton from "@/components/product/AddToCartButton";
+
 const ToyDetailsPage = () => {
     const { id } = useParams();
     const toys = useSelector(selectToys);

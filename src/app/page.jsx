@@ -9,6 +9,7 @@ import { fetchProducts } from "@/redux/features/products/productThunk";
 import { addToCart } from "@/redux/features/cart/cartThunk";
 import Banner from "@/components/Home/Banner";
 import Services from "@/components/Home/Services";
+
 const HomePage = () => {
   const toys = useSelector(selectToys);
   const dispatch = useDispatch();
