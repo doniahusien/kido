@@ -21,23 +21,27 @@ export default function ContactForm() {
         setLoading(true);
         setStatus("⏳ جاري الإرسال...");
         try {
-            const res = await fetch("/api/sendEmail", {
+            const res = await fetch("https://backend-chi-sepia.vercel.app/api/sendEmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
             });
+
+            const data = await res.json();
+
             if (res.ok) {
-                setStatus(" تم إرسال رسالتك بنجاح");
+                setStatus("✅ تم إرسال رسالتك بنجاح");
                 setForm({ name: "", email: "", message: "" });
             } else {
-                setStatus("❌ فشل الإرسال، حاول مرة أخرى");
+                setStatus(`❌ فشل الإرسال: ${data.error || "حاول مرة أخرى"}`);
             }
-        } catch {
+        } catch (err) {
             setStatus("⚠️ حدث خطأ، تحقق من الاتصال");
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <motion.div

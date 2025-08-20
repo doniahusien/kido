@@ -111,9 +111,8 @@ export const toggleHighlight = createAsyncThunk(
             });
 
             if (!res.ok) throw new Error("Failed to toggle highlight");
-
-            const data = await res.json(); // get updated product from API
-            return data; // return full product object (including updated highlight)
+            const data = await res.json(); 
+            return data;
         } catch (err) {
             return rejectWithValue(err.message);
         }
