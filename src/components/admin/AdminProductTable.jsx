@@ -15,6 +15,9 @@ import {
 } from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
 import Image from "next/image";
+import { Star, StarOff } from "lucide-react";
+import { toggleHighlight } from "@/redux/features/admin/adminThunk";
+
 
 export default function AdminProductTable({ setEditProduct }) {
     const dispatch = useDispatch();
@@ -95,12 +98,26 @@ export default function AdminProductTable({ setEditProduct }) {
                                             <Delete />
                                         </IconButton>
                                     </Tooltip>
-                                </TableCell>
+                                    <Tooltip title={prod.highlight ? "Unhighlight" : "Highlight"}>
+                                        <IconButton
+                                            onClick={() =>
+                                                dispatch(toggleHighlight({ _id: prod._id, highlight: !prod.highlight }))
+                                            }
+                                        >
+                                        {prod.highlight ? (
+                                            <Star className="text-yellow-500" fill="currentColor" />
+                                        ) : (
+                                            <StarOff className="text-gray-400" />
+                                        )}
+                                    </IconButton>
+                                </Tooltip>
+
+                            </TableCell>
                             </TableRow>
-                        );
+                );
                     })}
-                </TableBody>
-            </Table>
-        </TableContainer>
+            </TableBody>
+        </Table>
+        </TableContainer >
     );
 }

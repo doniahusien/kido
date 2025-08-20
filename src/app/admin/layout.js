@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Sign Up",
+  title: "Admin",
   description: "Create a new account to start shopping with us",
 };
 

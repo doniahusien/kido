@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAdminOrders, fetchAdminData, saveAdminProduct, deleteAdminProduct } from "./adminThunk";
+import { fetchAdminOrders, fetchAdminData, saveAdminProduct, deleteAdminProduct, toggleHighlight } from "./adminThunk";
 const adminSlice = createSlice({
     name: "admin",
     initialState: {
@@ -50,7 +50,14 @@ const adminSlice = createSlice({
                 state.ordersStatus = "failed";
                 state.ordersError = action.payload;
             })
-    },
-});
+            .addCase(toggleHighlight.fulfilled, (state, action) => {
+                const updated = action.payload;
+                const index = state.products.findIndex(p => p._id === updated._id);
+                if (index !== -1) {
+                    state.products[index] = updated; 
+                }
+            });
+    }
+})
 
 export default adminSlice.reducer;

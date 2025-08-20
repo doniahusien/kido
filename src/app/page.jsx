@@ -34,14 +34,14 @@ const HomePage = () => {
       dispatch(fetchProducts());
     }
   }, [dispatch, status]);
-
+  const highlighted = toys.filter((p) => p.highlight);
 
   return (
     <>
       <main dir="rtl" className="w-full min-h-screen bg-gradient-to-r from-red-200 via-yellow-100 to-yellow-200">
         <Banner user={user} />
         <Services />
-        <FeaturedProducts toys={toys} handleAddToCart={handleAddToCart} />
+        <FeaturedProducts toys={highlighted} handleAddToCart={handleAddToCart} />
       </main>
     </>
 

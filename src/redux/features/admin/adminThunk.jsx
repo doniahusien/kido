@@ -100,3 +100,22 @@ export const fetchAdminOrders = createAsyncThunk(
         }
     }
 );
+export const toggleHighlight = createAsyncThunk(
+    "admin/toggleHighlight",
+    async ({ _id, highlight }, { rejectWithValue }) => {
+        try {
+            const res = await fetch(`${API_BASE}/products/${_id}/highlight`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ highlight }),
+            });
+
+            if (!res.ok) throw new Error("Failed to toggle highlight");
+
+            const data = await res.json(); // get updated product from API
+            return data; // return full product object (including updated highlight)
+        } catch (err) {
+            return rejectWithValue(err.message);
+        }
+    }
+);
