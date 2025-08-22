@@ -32,7 +32,7 @@ const CartPage = () => {
                         onClick={() => setShowForm(true)}
                         className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg text-xl font-semibold"
                     >
-                        المتابعة للدفع
+            المتابعة للتأكيد
                     </button>
                 </div>
             )}
