@@ -30,7 +30,10 @@ const NavBar = () => {
                 </nav>
 
                 {/* User Actions */}
+                <div className='flex space-x-2 sm:space-x-4'>
                 <UserActions isAuthenticated={isAuthenticated} handleLogOut={handleLogOut} />
+
+                </div>
             </div>
 
             {/* Mobile Menu */}
