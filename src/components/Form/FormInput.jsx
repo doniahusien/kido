@@ -13,10 +13,9 @@ const FormInput = ({ type, placeholder, name, validation, label ,register,errors
                     {label}
                 </label>
                 <motion.input
-                    id={name}
                     type={type}
                     {...register( name , validation)}
-                    className={`w-full px-4 text-black py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 ${errors.name ? "border-red-500" : "border-gray-300"
+                    className={`w-full px-4 text-black py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 ${errors[name]? "border-red-500" : "border-gray-300"
                         }`}
                     whileFocus={{ scale: 1.03 }}
                     whileHover={{ scale: 1.02 }}
