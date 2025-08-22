@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ProductCard from '@/components/product/ProductCard';
-
-export default function CategoriesPage() {
+import { withAuth } from '@/withAuth';
+function CategoriesPage() {
     const dispatch = useDispatch();
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
@@ -81,3 +81,4 @@ export default function CategoriesPage() {
         </div>
     );
 }
+export default withAuth(CategoriesPage);
