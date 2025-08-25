@@ -39,7 +39,7 @@ const HomePage = () => {
   return (
     <>
       <main dir="rtl" className="w-full min-h-screen bg-gradient-to-r from-red-200 via-yellow-100 to-yellow-200">
-        <Banner user={user} />
+        <Banner user={user|| "عزيزي"} />
         <Services />
         <FeaturedProducts toys={highlighted} handleAddToCart={handleAddToCart} />
       </main>

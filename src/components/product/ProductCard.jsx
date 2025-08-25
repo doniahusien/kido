@@ -2,7 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AddToCartButton from "@/components/product/AddToCartButton";
+import { useSelector } from "react-redux";
 const ProductCard = ({ toy }) => {
+    const { user } = useSelector((state) => state.auth);
     return (
         <motion.div
             className="bg-white shadow-md rounded-2xl space-y-5 p-4 hover:shadow-xl transition-shadow duration-300"
@@ -27,8 +29,8 @@ const ProductCard = ({ toy }) => {
                 <h3 className="text-lg font-semibold">{toy.name}</h3>
                 <p className="text-gray-600">ج.م{toy.price}</p>
             </Link>
-
-            <AddToCartButton toy={toy} />
+{user &&        <AddToCartButton toy={toy} />}
+    
         </motion.div>
     );
 };
