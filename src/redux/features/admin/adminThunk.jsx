@@ -37,7 +37,12 @@ export const saveAdminProduct = createAsyncThunk(
         fd.append("name", formData.name);
         fd.append("price", formData.price);
         fd.append("categoryId", String(formData.categoryId));
-        if (formData.image) fd.append("image", formData.image);
+
+        if (formData.images && formData.images.length > 0) {
+            formData.images.forEach((file) => {
+                fd.append("images", file);
+            });
+        }
 
         const url = editProductId
             ? `${API_BASE}/products/${editProductId}`
@@ -63,6 +68,7 @@ export const saveAdminProduct = createAsyncThunk(
         }
     }
 );
+
 
 export const deleteAdminProduct = createAsyncThunk(
     "admin/deleteProduct",
@@ -111,7 +117,7 @@ export const toggleHighlight = createAsyncThunk(
             });
 
             if (!res.ok) throw new Error("Failed to toggle highlight");
-            const data = await res.json(); 
+            const data = await res.json();
             return data;
         } catch (err) {
             return rejectWithValue(err.message);

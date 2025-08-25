@@ -11,7 +11,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
         name: "",
         price: "",
         categoryId: "",
-        image: null,
+        images: [], 
     });
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
                 name: editProduct.name,
                 price: editProduct.price,
                 categoryId: editProduct.categoryId,
-                image: null,
+                images: [], 
             });
         }
     }, [editProduct]);
@@ -28,7 +28,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(saveAdminProduct({ formData, editProductId: editProduct?._id }));
-        setFormData({ name: "", price: "", categoryId: "", image: null });
+        setFormData({ name: "", price: "", categoryId: "", images: [] }); 
         setEditProduct(null);
     };
 
@@ -72,7 +72,10 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
             <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                multiple
+                onChange={(e) =>
+                    setFormData({ ...formData, images: Array.from(e.target.files) }) // ✅ plural
+                }
                 className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
 
