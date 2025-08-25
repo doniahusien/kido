@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const services = [
-    { title: "شحن مجاني", desc: "على جميع الطلبات التي تتجاوز 50 دولارًا" },
+    { title: "شحن مجاني", desc: "على جميع الطلبات التي تتجاوز 2000 جنيه مصري" },
     { title: "دعم 24/7", desc: "نحن هنا لمساعدتك في أي وقت" },
     { title: "إرجاع سهل", desc: "إرجاع بدون متاعب خلال 30 يومًا" },
 ];

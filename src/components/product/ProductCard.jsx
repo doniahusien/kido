@@ -12,14 +12,14 @@ const ProductCard = ({ toy }) => {
             transition={{ duration: 0.4 }}
         >
             <Link href={`/toys/${toy.id}`} className="block">
-                <div className="h-44 w-full rounded-md mb-5 flex items-center justify-center ">
+                <div className="h-full w-full rounded-md mb-5 flex items-center justify-center ">
                     <motion.div whileHover={{ scale: 1.1 }}>
                         <Image
                             src={toy.images[0]}
                             alt={toy.name}
                             width={550}
-                            height={250}
-                            className="w-full h-auto rounded-lg"
+                            height={300}
+                            className="w-full max-h-32 object-contain rounded-lg"
                         />
                     </motion.div>
                 </div>
