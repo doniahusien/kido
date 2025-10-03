@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+
+# Host
+Host: https://kiddo-kingdom.com
+
+# Sitemaps
+Sitemap: https://kiddo-kingdom.com/sitemap.xml
