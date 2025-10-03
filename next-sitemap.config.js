@@ -19,7 +19,6 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      "https://kiddo-kingdom.com/sitemap.xml", // ممكن تضيف سيت ماب تانية لو عايز
-    ],
+      ],
   },
 };
