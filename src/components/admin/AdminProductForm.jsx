@@ -11,6 +11,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
         name: "",
         price: "",
         categoryId: "",
+        description: "",
         images: [], 
     });
 
@@ -20,6 +21,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
                 name: editProduct.name,
                 price: editProduct.price,
                 categoryId: editProduct.categoryId,
+                description: editProduct.description || "",
                 images: [], 
             });
         }
@@ -28,7 +30,7 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(saveAdminProduct({ formData, editProductId: editProduct?._id }));
-        setFormData({ name: "", price: "", categoryId: "", images: [] }); 
+        setFormData({ name: "", price: "", categoryId: "",description: "", images: [] }); 
         setEditProduct(null);
     };
 
@@ -54,6 +56,12 @@ export default function AdminProductForm({ editProduct, setEditProduct }) {
                     className="border p-2 rounded-md w-full"
                 />
             </div>
+             <textarea
+                placeholder="Description"
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                className="border p-2 rounded-md w-full min-h-[80px]"
+            />
 
             <select
                 value={formData.categoryId}

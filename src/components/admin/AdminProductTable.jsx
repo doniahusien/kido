@@ -44,6 +44,7 @@ export default function AdminProductTable({ setEditProduct }) {
                         <TableCell>
                             <Typography fontWeight="bold">Category</Typography>
                         </TableCell>
+                        <TableCell><Typography fontWeight="bold">Description</Typography></TableCell>
                         <TableCell>
                             <Typography fontWeight="bold">Image</Typography>
                         </TableCell>
@@ -63,6 +64,11 @@ export default function AdminProductTable({ setEditProduct }) {
                                 <TableCell>{prod.name}</TableCell>
                                 <TableCell> ج.م {prod.price}</TableCell>
                                 <TableCell>{category?.name || "Unknown"}</TableCell>
+                                 <TableCell>
+                    <Typography variant="body2" color="text.primary">
+                        {prod.description || "—"} {/* ✅ عرض الوصف */}
+                    </Typography>
+                </TableCell>
                                 <TableCell>
                                     {prod.images?.[0] ? (
                                         <Image
@@ -104,20 +110,20 @@ export default function AdminProductTable({ setEditProduct }) {
                                                 dispatch(toggleHighlight({ _id: prod._id, highlight: !prod.highlight }))
                                             }
                                         >
-                                        {prod.highlight ? (
-                                            <Star className="text-yellow-500" fill="currentColor" />
-                                        ) : (
-                                            <StarOff className="text-gray-400" />
-                                        )}
-                                    </IconButton>
-                                </Tooltip>
+                                            {prod.highlight ? (
+                                                <Star className="text-yellow-500" fill="currentColor" />
+                                            ) : (
+                                                <StarOff className="text-gray-400" />
+                                            )}
+                                        </IconButton>
+                                    </Tooltip>
 
-                            </TableCell>
+                                </TableCell>
                             </TableRow>
-                );
+                        );
                     })}
-            </TableBody>
-        </Table>
+                </TableBody>
+            </Table>
         </TableContainer >
     );
 }

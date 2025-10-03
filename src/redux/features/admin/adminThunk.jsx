@@ -37,7 +37,9 @@ export const saveAdminProduct = createAsyncThunk(
         fd.append("name", formData.name);
         fd.append("price", formData.price);
         fd.append("categoryId", String(formData.categoryId));
-
+if (formData.description) {
+            fd.append("description", formData.description);
+        }
         if (formData.images && formData.images.length > 0) {
             formData.images.forEach((file) => {
                 fd.append("images", file);

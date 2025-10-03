@@ -42,7 +42,7 @@ const ToyDetailsPage = () => {
                             السعر: <span className="text-red-500">ج.م{toy.price}</span>
                         </p>
                         <p className="text-lg text-gray-600">
-                            هذه لعبة رائعة للأطفال! استمتعوا بساعات من المرح والتعلم من خلال تجربة لعب تفاعلية ومسلية.
+                            {toy.description || "لا يوجد وصف متاح لهذه اللعبة."}
                         </p>
                         <AddToCartButton toy={toy} />
                     </div>
