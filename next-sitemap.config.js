@@ -7,7 +7,8 @@ module.exports = {
   priority: 0.7,
   exclude: [
     "/admin", 
-    "/admin/*", // لو مش عايز جوجل يعمل إندكس للوحة التحكم
+      "/admin/*",
+      "/sitemap.xml"// لو مش عايز جوجل يعمل إندكس للوحة التحكم
   ],
   robotsTxtOptions: {
     policies: [
