@@ -1,12 +1,14 @@
 import "./globals.css";
 import ClientProvider from "./ClientProvider";
-
 export const metadata = {
   title: "Kiddo Kingdom | Kido Store",
   description:
     "Kiddo Kingdom - Your trusted kids' store for toys, clothes, and accessories. Shop the latest products online.",
   icons: {
     icon: "https://res.cloudinary.com/dikmcl1b6/image/upload/v1755439466/logo_oikak8.png",
+  },
+  alternates: {
+    canonical: "https://kiddo-kingdom.com",
   },
   openGraph: {
     title: "Kiddo Kingdom | Kido Store",
